@@ -14,8 +14,8 @@ public class Model implements Serializable {
     private Model() {
         model = new HashMap<>();
         model.put(1,new User("Anton", "Dydkin", 100000));
-        model.put(1,new User("Nikolay", "Petrov", 80000));
-        model.put(1,new User("Alexey", "Daranov", 70000));
+        model.put(2,new User("Nikolay", "Petrov", 80000));
+        model.put(3,new User("Alexey", "Daranov", 70000));
     }
 
     public static Model getInstance() {
