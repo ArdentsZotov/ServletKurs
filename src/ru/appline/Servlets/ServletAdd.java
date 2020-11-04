@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @WebServlet(urlPatterns = "/add")
 public class ServletAdd extends HttpServlet {
 
-    private AtomicInteger counter = new AtomicInteger(4);
+    private static AtomicInteger counter = new AtomicInteger(4);
 
     Model model = Model.getInstance();
 
@@ -73,5 +73,9 @@ public class ServletAdd extends HttpServlet {
 
         PrintWriter pw = response.getWriter();
         pw.print(gson.toJson(model.getFromList()));
+    }
+
+    protected static int getNowCounter() {
+        return counter.get();
     }
 }

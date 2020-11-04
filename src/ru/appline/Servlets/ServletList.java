@@ -98,7 +98,12 @@ public class ServletList extends HttpServlet {
 
         if (id == 0) pw.print(gson.toJson(model.getFromList()));
 
-        if (id > 0 & id < model.getFromList().size()) pw.print(gson.toJson(model.getFromList().get(id)));
+        if (id > 0 & id < model.getFromList().size()) {
+            User user = model.getFromList().get(id);
+            Object obj = (user == null) ? "Пользователь c ID=" + id + " был удален" : user;
+            pw.print(gson.toJson(obj));
+        }
+
         if (id > model.getFromList().size()) pw.print(gson.toJson("Пользователь с ID="+id+" не найден."));
     }
 }
